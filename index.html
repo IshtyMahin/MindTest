@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindGame</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .active {
+        color: black !important;
+        background-color: white !important;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-b from-gray-100 to-gray-200">
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-800 to-gray-900 text-white text-lg"
+    >
+      <nav class="navbar flex justify-between">
+        <div class="">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
+              </svg>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Take Quiz</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#feature"
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Feature</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#pricing"
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#about-us"
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact-us"
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Register</a
+                >
+              </li>
+              <li>
+                <a
+                  class="hover:text-black hover:bg-white transition-colors duration-300"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+          <a class="btn btn-ghost text-xl">MindTest</a>
+        </div>
+        <div class="hidden lg:flex">
+          <ul class="menu menu-horizontal mx-2">
+            <li>
+              <a
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Take Quiz</a
+              >
+            </li>
+            <li>
+              <a
+                href="#feature"
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Feature</a
+              >
+            </li>
+            <li>
+              <a
+                href="#pricing"
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Pricing</a
+              >
+            </li>
+            <li>
+              <a
+                href="#about-us"
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >About Us</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact-us"
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Contact Us</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Register</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-black hover:bg-white transition-colors duration-300"
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero section -->
+    <section class="">
+      <div
+        class="hero min-h-screen"
+        style="
+          background-image: url(https://img.freepik.com/free-photo/ready-back-school_1134-12.jpg?t=st=1717510428~exp=1717514028~hmac=1bdd997690e9d300927568e205d4dbdaa555a64c5dd5a33461a2648aee58ed78&w=1380);
+        "
+      >
+        <div class="hero-overlay bg-opacity-60"></div>
+        <div class="hero-content text-center text-neutral-content">
+          <div class="max-w-md">
+            <h2 class="text-4xl font-bold mb-4">
+              Test Your Knowledge with Fun Quizzes
+            </h2>
+            <p class="text-lg mb-8">
+              Challenge yourself with quizzes in various categories.
+            </p>
+            <a href="#" class="btn">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practic quiz -->
+    <section
+      class="px-6 md:px-0 my-16 py-16 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          Practice Quizzes
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-xl font-semibold mb-4 border-b-2 text-center">
+                Science Quiz
+              </h3>
+              <p class="mb-4">Test your knowledge of science with this quiz.</p>
+            </div>
+            <div class="card-actions flex justify-center">
+              <button class="btn px-8">Take Quiz</button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-xl font-semibold mb-4 border-b-2 text-center">
+                History Quiz
+              </h3>
+              <p class="mb-4">Test your knowledge of history with this quiz.</p>
+            </div>
+            <div class="card-actions flex justify-center">
+              <button class="btn px-8">Take Quiz</button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <h3 class="text-xl font-semibold mb-4 border-b-2 text-center">
+              Geography Quiz
+            </h3>
+            <p class="mb-4">Test your knowledge of geography with this quiz.</p>
+            <div class="card-actions flex justify-center">
+              <button class="btn px-8">Take Quiz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Feature Cards -->
+    <section
+      id="feature"
+      class="px-6 md:px-0 my-16 py-16 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          Our Features
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white"
+        >
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-user-friends text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Community Interaction</h3>
+            <p class="text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Praesentium doloribus est, minus quis laborum minima!
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-certificate text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Certified Quizzes</h3>
+            <p class="text-center">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Impedit
+              nostrum adipisci itaque ipsa corrupti omnis.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-trophy text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Achievements</h3>
+            <p class="text-center">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis
+              corporis eaque deleniti tempore facere hic!
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-chalkboard-teacher text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Educational Content</h3>
+            <p class="text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              fuga sed rerum, quae illo non.
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-clock text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Flexible Schedule</h3>
+            <p class="text-center">
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
+              dolores consequatur nisi quod eligendi sed?
+            </p>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 flex flex-col items-center bg-gradient-to-b from-gray-600 to-gray-800"
+          >
+            <i class="fas fa-cogs text-5xl mb-4"></i>
+            <h3 class="text-xl font-semibold mb-4">Customization Options</h3>
+            <p class="text-center">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Praesentium placeat, quidem laboriosam beatae nulla architecto!.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section
+      id="pricing"
+      class="px-6 md:px-0 my-16 py-16 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          Choose Your Plan
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-center border-b-2">
+                Basic
+              </h3>
+              <p class="text-lg mb-4">Access to limited quizzes</p>
+              <p class="text-xl font-bold mb-4">$9.99/month</p>
+            </div>
+            <div class="card-actions flex justify-center mt-auto">
+              <button class="btn px-8">Subscribe</button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-center border-b-2">
+                Standard
+              </h3>
+              <p class="text-lg mb-4">Access to all quizzes</p>
+              <p class="text-xl font-bold mb-4">$19.99/month</p>
+            </div>
+
+            <div class="card-actions flex justify-center mt-auto">
+              <button class="btn px-8">Subscribe</button>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between"
+          >
+            <div>
+              <h3 class="text-2xl font-semibold mb-4 text-center border-b-2">
+                Premium
+              </h3>
+              <p class="text-lg mb-4">
+                Access to all quizzes + exclusive features
+              </p>
+              <p class="text-xl font-bold mb-4">$29.99/month</p>
+            </div>
+            <div class="card-actions flex justify-center mt-auto">
+              <button class="btn px-8">Subscribe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section
+      class="px-6 md:px-0 my-16 py-16 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto text-center">
+        <h2
+          class="text-3xl font-bold mb-16 text-center border-y-2 py-2 border-black"
+        >
+          What People are Saying
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-gray-100 rounded-lg p-6">
+            <p class="text-lg mb-4">
+              "I love this quiz site! It's a great way to spend my free time."
+            </p>
+            <div class="font-semibold flex mx-auto justify-center items-center">
+              <div class="avatar placeholder mx-4">
+                <div class="bg-neutral text-neutral-content rounded-full w-8">
+                  <span>SY</span>
+                </div>
+              </div>
+              <p>John Doe</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 rounded-lg p-6">
+            <p class="text-lg mb-4">
+              "The quizzes are challenging and fun. Highly recommended!"
+            </p>
+            <div class="font-semibold flex mx-auto justify-center items-center">
+              <div class="avatar placeholder mx-4">
+                <div class="bg-neutral text-neutral-content rounded-full w-8">
+                  <span>SY</span>
+                </div>
+              </div>
+              <p>Ishtiaq</p>
+            </div>
+          </div>
+
+          <div class="bg-gray-100 rounded-lg p-6">
+            <p class="text-lg mb-4">
+              "I've learned so much from the quizzes on this site. It's
+              addictive!"
+            </p>
+            <div class="font-semibold flex mx-auto justify-center items-center">
+              <div class="avatar placeholder mx-4">
+                <div class="bg-neutral text-neutral-content rounded-full w-8">
+                  <span>SY</span>
+                </div>
+              </div>
+              <p>Mahin</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section
+      class="my-8 py-20 bg-gradient-to-b from-gray-500 to-gray-700 text-center text-white"
+    >
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+        <p class="text-lg mb-8">Sign up now and start taking quizzes!</p>
+        <a href="#" class="btn">Sign Up</a>
+      </div>
+    </section>
+
+    <!-- About Us -->
+    <section
+      id="about-us"
+      class="my-16 px-6 md:px-0 py-16 bg-gradient-to-b from-gray-200 to-gray-300 word-wrap"
+    >
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          About Us
+        </h2>
+
+        <div class="relative pl-4 md:px-8">
+          <div class="border-l-4 border-gray-300">
+            <div
+              class="timeline-item mb-10 ml-4 relative flex items-start space-x-4"
+            >
+              <div
+                class="timeline-point w-4 h-4 bg-gray-800 rounded-full absolute -left-2.5 top-2"
+              ></div>
+              <div>
+                <h3 class="text-2xl font-semibold">Our Mission</h3>
+                <p class="mt-2">
+                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste
+                  voluptatum dignissimos necessitatibus ullam quo error
+                  similique asperiores numquam veritatis officia, atque cumque
+                  perferendis consequuntur velit nesciunt! Distinctio suscipit
+                  quibusdam libero!
+                </p>
+              </div>
+            </div>
+            <div
+              class="timeline-item mb-10 ml-4 relative flex items-start space-x-4"
+            >
+              <div
+                class="timeline-point w-4 h-4 bg-gray-800 rounded-full absolute -left-2.5 top-2"
+              ></div>
+              <div>
+                <h3 class="text-2xl font-semibold">Our Vision</h3>
+                <p class="mt-2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Architecto corporis tempora qui commodi itaque fuga nobis
+                  saepe, magnam, adipisci sit et sapiente impedit, at assumenda
+                  placeat! Libero assumenda cupiditate iste?
+                </p>
+              </div>
+            </div>
+            <div
+              class="timeline-item mb-10 ml-4 relative flex items-start space-x-4"
+            >
+              <div
+                class="timeline-point w-4 h-4 bg-gray-800 rounded-full absolute -left-2.5 top-2"
+              ></div>
+              <div>
+                <h3 class="text-2xl font-semibold">Our Team</h3>
+                <p class="mt-2">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+                  voluptas nobis iste fuga deserunt reiciendis et at voluptatem.
+                  Nobis vitae deleniti esse unde libero deserunt molestiae
+                  mollitia eum tempora fuga.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Contact us -->
+    <section
+      id="contact-us"
+      class="my-16 py-16 md:px-16 px-6 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto">
+        <h1
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          Contact Us
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            class="rounded px-8 shadow-md pt-6 pb-8 bg-gradient-to-b from-gray-600 to-gray-800 text-white"
+          >
+            <h2
+              class="text-2xl font-semibold mb-4 text-center pb-2 border-b-2 border-black"
+            >
+              Our Information
+            </h2>
+            <div class="flex flex-col justify-center py-8">
+              <p class="mb-2 break-words">
+                <strong class="block">Address:</strong>
+                Tabalchori,Rangamati,Chittagong
+              </p>
+              <p class="mb-2">
+                <strong class="block">Phone:</strong> 01843336009
+              </p>
+              <p class="mb-2">
+                <strong class="block">Email:</strong> ishty119@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="rounded px-8 shadow-md pt-6 pb-8 bg-gradient-to-b from-gray-600 to-gray-800 text-white"
+          >
+            <h2
+              class="text-2xl font-semibold mb-4 pb-2 border-b-2 border-black text-center"
+            >
+              Get In Touch
+            </h2>
+            <form class="pt-6 pb-8 mb-4">
+              <div class="mb-4">
+                <label class="block font-bold mb-2" for="name"> Name </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div class="mb-4">
+                <label class="block font-bold mb-2" for="email"> Email </label>
+                <input
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="email"
+                  type="email"
+                  placeholder="Your Email"
+                />
+              </div>
+              <div class="mb-4">
+                <label class="block font-bold mb-2" for="message">
+                  Message
+                </label>
+                <textarea
+                  class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  id="message"
+                  placeholder="Your Message"
+                  rows="5"
+                ></textarea>
+              </div>
+              <div class="flex items-center justify-center">
+                <button class="btn text-xl font-bold py-2 px-16 rounded-lg">
+                  Send
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="footer footer-center p-16 mt-8 text-white rounded bg-gradient-to-b from-gray-500 to-gray-700"
+    >
+      <nav class="grid grid-flow-col gap-4">
+        <a href="#about-us" class="link link-hover">About us</a>
+        <a href="#contact-us" class="link link-hover">Contact</a>
+        <a href="#pricing" class="link link-hover">Pricing</a>
+        <a href="#feature" class="link link-hover">Feature</a>
+      </nav>
+      <nav>
+        <div class="grid grid-flow-col gap-4">
+          <a
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current"
+            >
+              <path
+                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+              ></path></svg
+          ></a>
+          <a
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current"
+            >
+              <path
+                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+              ></path></svg
+          ></a>
+          <a
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              class="fill-current"
+            >
+              <path
+                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+              ></path></svg
+          ></a>
+        </div>
+      </nav>
+      <aside>
+        <p>Copyright © 2024 - All right reserved by MindGame (Ishtiaq Uddin)</p>
+      </aside>
+    </footer>
+
+    <script>
+      const links = document.querySelectorAll(
+        ".menu li a, .menu-horizontal li a"
+      );
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          links.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
