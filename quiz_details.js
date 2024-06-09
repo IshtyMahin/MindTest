@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   };
 
-  // Render quiz details
   const renderQuizDetails = (quiz) => {
     document.getElementById("quizTitle").textContent = quiz.title;
     document.getElementById("quizDescription").textContent = quiz.description;
@@ -30,31 +29,38 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     quiz.questions.forEach((question, index) => {
       const questionElement = document.createElement("div");
-      questionElement.classList.add("question");
+      questionElement.classList.add(
+        "question",
+        "bg-white",
+        "p-4",
+        "rounded",
+        "shadow"
+      );
 
       const choices = question.choices
         .map(
           (choice, choiceIndex) => `
-        <label>
-          <input type="radio" name="question${question.id}" value="${
+          <label class="block mb-2">
+            <input type="radio" name="question${question.id}" value="${
             choice.id
-          }" />
-          ${String.fromCharCode(65 + choiceIndex)}. ${choice.text}
-        </label>
-      `
+          }" class="mr-2" />
+            ${String.fromCharCode(65 + choiceIndex)}. ${choice.text}
+          </label>
+        `
         )
         .join("");
 
       questionElement.innerHTML = `
-        <p><strong>Question ${index + 1}:</strong> ${question.text}</p>
-        <div class="choices">${choices}</div>
-      `;
+          <p class="font-semibold mb-2"><strong>Question ${
+            index + 1
+          }:</strong> ${question.text}</p>
+          <div class="choices">${choices}</div>
+        `;
 
       questionsContainer.appendChild(questionElement);
     });
   };
 
-  // Handle quiz submission
   document.getElementById("submitQuiz").addEventListener("click", async () => {
     const questions = Array.from(document.querySelectorAll(".question"));
     const answers = questions.map((question) => {

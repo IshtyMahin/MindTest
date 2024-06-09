@@ -68,6 +68,9 @@ const updateNavbar = (user) => {
     ddregisterLink.style.display = "inline";
     ddcreateQuizLink.style.display = "none";
     ddquiz_list.style.display = "none";
+    alert("Please login");
+    window.href = "index.html";
+    
   }
 };
 
