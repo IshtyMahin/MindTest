@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MindGame</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .active {
+        color: black !important;
+        background-color: white !important;
+      }
+
+      .swap-on {
+        display: none;
+      }
+      .dropdown[open] .swap-on {
+        display: block;
+      }
+      .dropdown[open] .swap-off {
+        display: none;
+      }
+
+    </style>
+  </head>
+<body class="bg-gradient-to-b from-gray-100 to-gray-200">
+     <header class="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-gray-800 to-gray-900 text-white text-lg">
+    <nav class="navbar flex justify-between">
+      <div class="">
+        <details class="dropdown">
+          <summary tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 swap-off" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 swap-on" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </summary>
+          <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-gradient-to-b from-gray-600 to-gray-800 text-white rounded-box w-52">
+            <li><a href="index.html" class="hover:text-black hover:bg-white transition-colors duration-300">Home</a></li>
+            <li><a href="quiz_list.html" class="hover:text-black hover:bg-white transition-colors duration-300">All Quiz</a></li>
+            <li><a href="#feature" class="hover:text-black hover:bg-white transition-colors duration-300">Feature</a></li>
+            <li><a href="#pricing" class="hover:text-black hover:bg-white transition-colors duration-300">Pricing</a></li>
+            <li><a href="#about-us" class="hover:text-black hover:bg-white transition-colors duration-300">About Us</a></li>
+            <li><a href="#contact-us" class="hover:text-black hover:bg-white transition-colors duration-300">Contact Us</a></li>
+            <li id="dd-register-link"><a href="register.html" class="hover:text-black hover:bg-white transition-colors duration-300">Register</a></li>
+            <li id="dd-login-link"><a href="login.html" class="hover:text-black hover:bg-white transition-colors duration-300">Login</a></li>
+            <li id="dd-logout-link" style="display: none;"><a href="#" class="hover:text-black hover:bg-white transition-colors duration-300">Logout</a></li>
+          </ul>
+        </details>
+        <a class="btn btn-ghost text-xl">MindTest</a>
+      </div>
+      <div class="hidden lg:flex">
+        <ul class="menu menu-horizontal mx-2">
+          <li><a href="index.html" class="hover:text-black hover:bg-white transition-colors duration-300">Home</a></li>
+          <li><a id="quiz_list" href="quiz_list.html" class="hover:text-black hover:bg-white transition-colors duration-300">Take Quiz</a></li>
+          <li><a href="#feature" class="hover:text-black hover:bg-white transition-colors duration-300">Feature</a></li>
+          <li><a href="#pricing" class="hover:text-black hover:bg-white transition-colors duration-300">Pricing</a></li>
+          <li><a href="#about-us" class="hover:text-black hover:bg-white transition-colors duration-300">About Us</a></li>
+          <li><a href="#contact-us" class="hover:text-black hover:bg-white transition-colors duration-300">Contact Us</a></li> 
+          <li id="create-quiz-link" style="display: none;"><a href="create_quiz.html" class="hover:text-black hover:bg-white transition-colors duration-300">Create Quiz</a></li>
+          <li id="profile-link" style="display: none;"><a href="profile.html" class="hover:text-black hover:bg-white transition-colors duration-300">Profile</a></li>
+          <li id="register-link"><a href="register.html" class="hover:text-black hover:bg-white transition-colors duration-300">Register</a></li>
+          <li id="login-link"><a href="login.html" class="hover:text-black hover:bg-white transition-colors duration-300">Login</a></li>
+          <li id="logout-link" style="display: none;"><a href="#" class="hover:text-black hover:bg-white transition-colors duration-300">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+    <section
+      class="px-6 md:px-0 my-16 py-16 bg-gradient-to-b from-gray-200 to-gray-300"
+    >
+      <div class="container mx-auto">
+        <h2
+          class="text-3xl font-bold text-center border-y-2 py-2 border-black mb-16"
+        >
+          Practice Quizzes
+        </h2>
+        <div
+        id="quizList"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white"
+        >
+    </div>
+      </div>
+    </div>
+    <script src="/quiz_list.js"></script>
+  </body>
+</html>
