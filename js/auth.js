@@ -44,11 +44,17 @@ const fetchUserProfile = async () => {
 };
 const updateNavbar = (user) => {
   const createQuizLink = document.getElementById("create-quiz-link");
+  const ddcreateQuizLink = document.getElementById("dd-create-quiz-link");
   const profileLink = document.getElementById("profile-link");
+  const ddprofileLink = document.getElementById("dd-profile-link");
   const loginLink = document.getElementById("login-link");
+  const ddloginLink = document.getElementById("dd-login-link");
   const logoutLink = document.getElementById("logout-link");
+  const ddlogoutLink = document.getElementById("dd-logout-link");
   const registerLink = document.getElementById("register-link");
+  const ddregisterLink = document.getElementById("dd-register-link");
   const quiz_list = document.getElementById("quiz_list");
+  const ddquiz_list = document.getElementById("dd-quiz_list");
   const all_quiz_btn = document.getElementById("all_quiz_btn");
 
   if (user) {
@@ -56,11 +62,17 @@ const updateNavbar = (user) => {
     logoutLink.style.display = "inline";
     profileLink.style.display = "inline";
     registerLink.style.display = "none";
+    ddloginLink.style.display = "none";
+    ddlogoutLink.style.display = "inline";
+    ddprofileLink.style.display = "inline";
+    ddregisterLink.style.display = "none";
 
     if (user.is_admin) {
       createQuizLink.style.display = "inline";
+      ddcreateQuizLink.style.display = "inline";
     } else {
       createQuizLink.style.display = "none";
+      ddcreateQuizLink.style.display = "none";
     }
   } else {
     loginLink.style.display = "inline";
@@ -70,6 +82,13 @@ const updateNavbar = (user) => {
     createQuizLink.style.display = "none";
     quiz_list.style.display = "none";
     all_quiz_btn.style.display = "none";
+    ddloginLink.style.display = "inline";
+    ddlogoutLink.style.display = "none";
+    ddprofileLink.style.display = "none";
+    ddregisterLink.style.display = "inline";
+    ddcreateQuizLink.style.display = "none";
+    ddquiz_list.style.display = "none";
+  
   }
 };
 
