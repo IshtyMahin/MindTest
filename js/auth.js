@@ -49,6 +49,7 @@ const updateNavbar = (user) => {
   const logoutLink = document.getElementById("logout-link");
   const registerLink = document.getElementById("register-link");
   const quiz_list = document.getElementById("quiz_list");
+  const all_quiz_btn = document.getElementById("all_quiz_btn");
 
   if (user) {
     loginLink.style.display = "none";
@@ -68,6 +69,7 @@ const updateNavbar = (user) => {
     registerLink.style.display = "inline";
     createQuizLink.style.display = "none";
     quiz_list.style.display = "none";
+    all_quiz_btn.style.display = "none";
   }
 };
 

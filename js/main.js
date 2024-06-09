@@ -1,4 +1,14 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const token = localStorage.getItem("token");
+  let user = null;
+
+  if (token) {
+    user = await fetchUserProfile();
+    updateNavbar(user);
+  } else {
+    updateNavbar(null);
+  }
+
   const registerForm = document.getElementById("registerForm");
   if (registerForm) {
     registerForm.addEventListener("submit", async (e) => {
@@ -70,13 +80,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const password = document.getElementById("password").value;
 
       try {
-        const response = await fetch("https://quiz-zone-g1pi.onrender.com/api/user/login/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
+        const response = await fetch(
+          "https://quiz-zone-g1pi.onrender.com/api/user/login/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, password }),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -92,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
 });
 
 const apiCall = async (url, options) => {
@@ -154,6 +166,37 @@ const fetchUserProfile = async () => {
   } catch (error) {
     console.error("Error fetching user profile:", error);
     return null;
+  }
+};
+
+const updateNavbar = (user) => {
+  const createQuizLink = document.getElementById("create-quiz-link");
+  const profileLink = document.getElementById("profile-link");
+  const loginLink = document.getElementById("login-link");
+  const logoutLink = document.getElementById("logout-link");
+  const registerLink = document.getElementById("register-link");
+  const quiz_list = document.getElementById("quiz_list");
+  // const all_quiz_btn = document.getElementById("all_quiz_btn");
+
+  if (user) {
+    loginLink.style.display = "none";
+    logoutLink.style.display = "inline";
+    profileLink.style.display = "inline";
+    registerLink.style.display = "none";
+
+    if (user.is_admin) {
+      createQuizLink.style.display = "inline";
+    } else {
+      createQuizLink.style.display = "none";
+    }
+  } else {
+    loginLink.style.display = "inline";
+    logoutLink.style.display = "none";
+    profileLink.style.display = "none";
+    registerLink.style.display = "inline";
+    createQuizLink.style.display = "none";
+    quiz_list.style.display = "none";
+    // all_quiz_btn.style.display = "none";
   }
 };
 
