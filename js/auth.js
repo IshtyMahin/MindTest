@@ -17,18 +17,64 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
   }
 
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", async (event) => {
+      event.preventDefault(); 
+
+      if (!user) {
+        alert("Please login to send a message.");
+        return;
+      }
+
+      const formData = new FormData(contactForm);
+      const messageData = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      };
+
+      try {
+        const response = await fetch(
+          "https://quiz-zone-g1pi.onrender.com/api/user/contact/",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(messageData),
+          }
+        );
+
+        if (response.ok) {
+          const responseData = await response.json();
+          console.log(responseData.message);
+          contactForm.reset();
+        } else {
+          console.error("Failed to send message.");
+        }
+      } catch (error) {
+        console.error("Error sending message:", error);
+        // Handle network error
+      }
+    });
+  }
 });
 
 const fetchUserProfile = async () => {
   try {
     const token = localStorage.getItem("token");
-    const response = await fetch("https://quiz-zone-g1pi.onrender.com/api/user/profile/", {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://quiz-zone-g1pi.onrender.com/api/user/profile/",
+      {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       const userData = await response.json();
@@ -88,7 +134,5 @@ const updateNavbar = (user) => {
     ddregisterLink.style.display = "inline";
     ddcreateQuizLink.style.display = "none";
     ddquiz_list.style.display = "none";
-  
   }
 };
-

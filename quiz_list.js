@@ -68,8 +68,8 @@ const updateNavbar = (user) => {
     ddregisterLink.style.display = "inline";
     ddcreateQuizLink.style.display = "none";
     ddquiz_list.style.display = "none";
+    window.location.href = "index.html";
     alert("Please login");
-    window.href = "index.html";
     
   }
 };
@@ -106,7 +106,7 @@ const fetchQuizzes = async (user) => {
     quizList.innerHTML = quizzes
       .map((quiz) => {
         return `
-      <div class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-600 to-gray-800 flex flex-col justify-between transform transition-transform hover:scale-105 hover:shadow-lg">
+      <div class="bg-white rounded-lg shadow-md p-6 bg-gradient-to-b from-gray-800 to-gray-900 flex flex-col justify-between transform transition-transform hover:scale-105 hover:shadow-lg">
         <div>
           <h3 class="text-xl font-semibold mb-4 border-b-2 text-center">${
             quiz.title
@@ -123,8 +123,8 @@ const fetchQuizzes = async (user) => {
            ${
              user && user.is_admin
                ? `
-             <a href="edit_quiz.html?quiz_id=${quiz.id}" class="btn px-8 ml-4 bg-green-300 hover:bg-green-400 ">Edit</a>
-            <button class="btn px-8 ml-4 delete-quiz-btn bg-red-300 hover:bg-red-400 " data-id="${quiz.id}">Delete</button>
+             <a href="edit_quiz.html?quiz_id=${quiz.id}" class="btn px-8 ml-4 bg-yellow-600 hover:bg-yellow-500  ">Edit</a>
+            <button class="btn px-8 ml-4  delete-quiz-btn bg-red-600  hover:bg-red-500 " data-id="${quiz.id}">Delete</button>
           `
                : ""
            }
