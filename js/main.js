@@ -97,7 +97,10 @@ document.addEventListener("DOMContentLoaded", async () => {
           alert("Login successful!");
           window.location.href = "index.html";
         } else {
-          alert("Login failed. Please try again.");
+          const errorData = await response.json();
+          // console.log(errorData.erros.non_field_errors[0]);
+
+          alert(`Login failed: ${errorData.erros.non_field_errors[0]}`);
         }
       } catch (error) {
         console.error("Error during login:", error);
