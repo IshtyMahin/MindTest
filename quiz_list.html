@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MindGame</title>
+    <title>MindGame | Quiz_List</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css"
@@ -145,6 +145,18 @@
         <p>Copyright © 2024 - All right reserved by MindGame (Ishtiaq Uddin)</p>
       </aside>
     </footer>
+
+    <script>
+      const links = document.querySelectorAll(
+        ".menu li a, .menu-horizontal li a"
+      );
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          links.forEach((l) => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+    </script>
     <script src="/quiz_list.js"></script>
   </body>
 </html>
